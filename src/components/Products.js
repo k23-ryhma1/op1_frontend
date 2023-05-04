@@ -1,8 +1,9 @@
+import ProductList from "./ProductList";
 
 export default function Products() {
     return(
         <div>
-            <h1>TUOTESIVU</h1>
+            <ProductList />
         </div>
     );
 }

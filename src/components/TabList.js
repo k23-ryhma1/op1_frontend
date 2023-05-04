@@ -16,9 +16,9 @@ export default function TabList() {
     return(
         <div>
             <Tabs value={value} onChange={changeTab}>
-                <Tab value="one" label="Home" />
-                <Tab value="two" label="Products" />
-                <Tab value="three" label="About us" />
+                <Tab value="one" label="Koti" />
+                <Tab value="two" label="Tuotteet" />
+                <Tab value="three" label="Meistä" />
             </Tabs>
             {value === 'one' && <div><Home /></div>}
             {value === 'two' && <div><Products /></div>}
