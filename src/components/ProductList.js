@@ -8,13 +8,10 @@ function ProductList () {
 
     useEffect(() => fetchData(), [])
 
-    //TODO
-    //Front-End ja Back-End täytyy konfiguroida toimimaan
     const fetchData = () => {
         fetch('http://localhost:8080/api/products')
         .then(response => response.json())
         .then(data => setProducts(data))
-        console.log(products)
     }
 
     return (
