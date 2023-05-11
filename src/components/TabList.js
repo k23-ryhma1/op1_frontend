@@ -4,6 +4,7 @@ import Home from './Home';
 import Products from './Products';
 import AboutUs from './AboutUs';
 import React, { useState, useRef } from 'react';
+import Manufacturers from './Manufacturers';
 
 export default function TabList() {
 
@@ -18,11 +19,13 @@ export default function TabList() {
             <Tabs value={value} onChange={changeTab}>
                 <Tab value="one" label="Koti" />
                 <Tab value="two" label="Tuotteet" />
-                <Tab value="three" label="Meistä" />
+                <Tab value="three" label="Valmistajat" />
+                <Tab value="four" label="Meistä" />
             </Tabs>
             {value === 'one' && <div><Home /></div>}
             {value === 'two' && <div><Products /></div>}
-            {value === 'three' && <div><AboutUs /></div>}
+            {value === 'three'} && <div><Manufacturers /></div>
+            {value === 'four' && <div><AboutUs /></div>}
         </div>
     );
 }
