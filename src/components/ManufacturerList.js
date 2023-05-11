@@ -11,7 +11,8 @@ function ManufacturerList () {
     const fetchData = () => {
         fetch('http://localhost:8080/api/manufacturers')
         .then(response => response.json())
-        .then(data => {setManufacturers(data);})
+        .then(data => {setManufacturers(data);
+        console.log(data)})
     }
 
     return (

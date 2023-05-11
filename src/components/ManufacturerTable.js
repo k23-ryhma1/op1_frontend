@@ -4,7 +4,7 @@ import { AgGridReact } from 'ag-grid-react'
 function ManufacturerTable (props) {
 
     const columns = [
-        {headerName: "Nimi", field: "name" , sortable: true , filter: true , floatingFilter: true}
+        {headerName: "Nimi", field: "name" , sortable: true , filter: true , floatingFilter: true, width: '300px'}
     ]
 
     const gridOptions = {
@@ -14,11 +14,11 @@ function ManufacturerTable (props) {
 
     return (
         <div className="ag-theme-material"
-        style={{height: '700px', width: '80%', margin: 'auto'}} >
+        style={{height: '500px', width: '30%', margin: 'auto'}} >
         <AgGridReact
             rowSelection="single"
             columnDefs={columns}
-            rowData={props.manufacturer}
+            rowData={props.manufacturers}
             gridOptions={gridOptions}>
         </AgGridReact>
         </div>
