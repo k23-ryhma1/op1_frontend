@@ -3,7 +3,7 @@ import Tab from '@mui/material/Tab';
 import Home from './Home';
 import Products from './Products';
 import AboutUs from './AboutUs';
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import Manufacturers from './Manufacturers';
 
 export default function TabList() {
@@ -24,7 +24,7 @@ export default function TabList() {
             </Tabs>
             {value === 'one' && <div><Home /></div>}
             {value === 'two' && <div><Products /></div>}
-            {value === 'three'} && <div><Manufacturers /></div>
+            {value === 'three' && <div><Manufacturers /></div>} 
             {value === 'four' && <div><AboutUs /></div>}
         </div>
     );
