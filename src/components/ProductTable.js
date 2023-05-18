@@ -12,13 +12,13 @@ function ProductTable (props) {
         {headerName: "Koko", field: "size.clothingSize" , sortable: true , filter: true , floatingFilter: true},
         { headerName: "", field: "id",
             cellRenderer: (params) => (
-                <AddOrder addOrder={addOrder} params={params} customerLink={params.value}/>
+                <AddOrder addOrder={addOrder} params={params}/>
             )}]
 
     const gridOptions = {
         animateRows: true,
         enableColResize: true,
-     }
+    };
 
      const addOrder = (order) => {
         console.log(order)
@@ -43,7 +43,7 @@ function ProductTable (props) {
             gridOptions={gridOptions}>
         </AgGridReact>
         </div>
-    )
+    );
 }
 
 export default ProductTable
