@@ -14,15 +14,11 @@ function ProductList() {
             .then(data => setProducts(data));
     };
 
-    const getOrderFormLink = (productId) => {
-        return // ...
-    };
 
     return (
         <div className="ag-theme-material">
             <ProductTable
                 products={products}
-                getOrderFormLink={getOrderFormLink}
                 fetchData={fetchData}
             />
         </div>
