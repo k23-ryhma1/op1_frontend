@@ -1,24 +1,32 @@
-import React, { useEffect, useState } from "react"
-import 'ag-grid-community/styles/ag-grid.css'
-import 'ag-grid-community/styles/ag-theme-material.css'
-import ProductTable from "./ProductTable"
+import React, { useEffect, useState } from "react";
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-material.css';
+import ProductTable from "./ProductTable";
 
-function ProductList () {
-    const [products, setProducts] = useState([])
+function ProductList() {
+    const [products, setProducts] = useState([]);
 
-    useEffect(() => fetchData(), [])
+    useEffect(() => fetchData(), []);
 
     const fetchData = () => {
         fetch('http://localhost:8080/api/products')
-        .then(response => response.json())
-        .then(data => setProducts(data))
-    }
+            .then(response => response.json())
+            .then(data => setProducts(data));
+    };
+
+    const getOrderFormLink = (productId) => {
+        return // ...
+    };
 
     return (
-        <div class="ag-theme-material">
-            <ProductTable products={products} fetchData={fetchData}/>
+        <div className="ag-theme-material">
+            <ProductTable
+                products={products}
+                getOrderFormLink={getOrderFormLink}
+                fetchData={fetchData}
+            />
         </div>
-    )
+    );
 }
 
-export default ProductList
+export default ProductList;
