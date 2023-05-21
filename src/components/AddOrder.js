@@ -7,15 +7,17 @@ import DialogActions from "@mui/material/DialogActions"
 import DialogContent from "@mui/material/DialogContent"
 import SendIcon from '@mui/icons-material/Send'
 
-function AddOrder ({addOrder}) {
+function AddOrder (props) {
     const [open, setOpen] = useState(false)
-    const [customer, setCustomer] = useState({
-    
-    })
     const [order, setOrder] = useState({
-        date: '',
-        customer: '',
-        orderstatus: ''
+        date: new Date(),
+        customer: {
+            firstName: '',
+            lastName: '',
+            email: ''
+        },
+        product: props.params.data,
+        orderstatus: 'Tilaus vastaanotettu',
     })
 
     const handleClickOpen = () => {
@@ -23,7 +25,7 @@ function AddOrder ({addOrder}) {
     }
 
     const handleCloser = () => {
-        addOrder(order)
+        props.addOrder(order)
         setOpen(false)
     }
 
@@ -32,7 +34,7 @@ function AddOrder ({addOrder}) {
     }
 
     const inputChanged = (event) => {
-        setOrder({ ...order, [event.target.name]: event.target.value })
+        setOrder({ ...order, customer: { ...order.customer, [event.target.name]: event.target.value }})
     }
 
     return (
@@ -46,21 +48,20 @@ function AddOrder ({addOrder}) {
                 <DialogTitle>New order</DialogTitle>
                 <DialogContent>
                     <TextField
-                        name="date"
-                        value={order.date}
-                        autoFocus
+                        name="firstName"
                         margin="dense"
-                        label="Date"
+                        value={order.customer.firstName}
+                        label="First name"
                         type="text"
                         fullWidth
                         variant="standard"
                         onChange={inputChanged}
                     />
                     <TextField
-                        name="customer"
+                        name="lastName"
                         margin="dense"
-                        value={order.customer}
-                        label="customer"
+                        value={order.customer.lastName}
+                        label="Last name"
                         type="text"
                         fullWidth
                         variant="standard"
@@ -68,7 +69,7 @@ function AddOrder ({addOrder}) {
                     />
                     <TextField
                         name="email"
-                        value={order.email}
+                        value={order.customer.email}
                         margin="dense"
                         label="Email"
                         type="text"
@@ -78,39 +79,9 @@ function AddOrder ({addOrder}) {
                     />
                     <TextField
                         name="phone"
-                        value={order.phone}
+                        value={order.customer.phone}
                         margin="dense"
                         label="Phone"
-                        type="text"
-                        fullWidth
-                        variant="standard"
-                        onChange={inputChanged}
-                    />
-                    <TextField
-                        name="streetaddress"
-                        value={order.streetaddress}
-                        margin="dense"
-                        label="Streetaddress"
-                        type="text"
-                        fullWidth
-                        variant="standard"
-                        onChange={inputChanged}
-                    />
-                    <TextField
-                        name="postcode"
-                        value={order.postcode}
-                        margin="dense"
-                        label="Postcode"
-                        type="text"
-                        fullWidth
-                        variant="standard"
-                        onChange={inputChanged}
-                    />
-                    <TextField
-                        name="city"
-                        value={order.city}
-                        margin="dense"
-                        label="City"
                         type="text"
                         fullWidth
                         variant="standard"
