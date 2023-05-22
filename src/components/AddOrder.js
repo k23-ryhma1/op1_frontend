@@ -14,7 +14,8 @@ function AddOrder (props) {
         customer: {
             firstName: '',
             lastName: '',
-            email: ''
+            email: '',
+            phone: ''
         },
         product: props.params.data,
         orderstatus: 'Tilaus vastaanotettu',
